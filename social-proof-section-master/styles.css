@@ -1,0 +1,196 @@
+/* Archivo: styles.css */
+
+/* Definir las variables en :root */
+:root {
+    --VeryDarkMagenta: hsl(300, 43%, 22%);
+    --SoftPink: hsl(333, 80%, 67%);
+    --DarkGrayishMagenta: hsl(303, 10%, 53%);
+    --LightGrayishMagenta: hsl(300, 24%, 96%);
+    --White: hsl(0, 0%, 100%);
+    --font-family-primary: 'League Spartan', sans-serif;
+}
+
+/* Estilos globales */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.5rem; /* 15px */
+    background-color: var(--White);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem; /* Margin to padding */
+    font-family: var(--font-family-primary);
+    max-width: 30rem; /* Limit body width */
+    margin: 0 auto; /* Center body */
+}
+
+header {
+    margin-top: 3rem; /* Reduce top margin */
+    margin-bottom: 2rem; /* Reduce bottom margin */
+    text-align: center;
+}
+
+.header__title {
+    color: var(--VeryDarkMagenta);
+    font-weight: bold;
+    margin-bottom: 1.5rem; /* Reduce bottom margin */
+    font-size: 3rem; /* Adjust font size */
+}
+
+.header__text {
+    color: var(--DarkGrayishMagenta);
+    max-width: 30rem; /* Change from width to max-width */
+    font-size: 1.4rem; /* Adjust font size */
+}
+
+.rating--one,
+.rating--two,
+.rating--three {
+    background-color: var(--LightGrayishMagenta);
+    padding: 1rem;
+    width: 100%; /* Change to full width */
+    max-width: 30rem; /* Change from width to max-width */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+}
+
+
+.rating__icons {
+    margin-bottom: .75rem;
+}
+
+.ratings__text {
+    color: var(--VeryDarkMagenta);
+    font-weight: 800;
+}
+
+.reviews {
+    margin-top: 2rem;
+}
+
+.review__user {
+    background-color: var(--VeryDarkMagenta);
+    padding: 2rem;
+    width: 100%;
+    max-width: 30rem;
+    height: 25rem; /* Fixed height to make it more square-like */
+    border-radius: 10px;
+}
+
+.review__user--info {
+    display: flex;
+    margin: 1rem;
+}
+
+.review__user--pic img {
+    border-radius: 50%;
+    width: 4rem;
+    margin-right: 2rem;
+}
+
+.review__user--name {
+    color: var(--White);
+    margin-top: .5rem;
+    font-size: 1.6rem; /* Adjust font size */
+}
+
+.review__user--name span {
+    display: block;
+    color: var(--SoftPink);
+    font-size: 1.2rem; /* Adjust font size */
+}
+
+.review__text {
+    text-align: left;
+    color: var(--LightGrayishMagenta);
+    margin-top: 2rem; /* Reduce top margin */
+    margin-bottom: 0; /* Reduce bottom margin */
+    line-height: 1.5;
+    font-size: 1.4rem; /* Adjust font size */
+}
+
+/* Media query for larger screens */
+@media (min-width: 1024px) {
+    body {
+        display: grid; /* Use grid layout */
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        grid-template-rows: auto 1fr; /* Two rows */
+        grid-template-areas: 
+            "header ratings"
+            "reviews reviews"; /* Define areas */
+        max-width: none; /* Remove max-width constraint */
+        padding: 3rem; /* Adjust padding */
+    }
+
+    header {
+        grid-area: header; /* Place header in header area */
+        text-align: left; /* Align text to the left */
+        margin: 0; /* Remove default margin */
+        margin-left: 17rem;
+        width: 40rem;
+        height: 0;
+    }
+
+    .header__title {
+        font-size: 4rem;
+    }
+
+    .ratings {
+        grid-area: ratings; /* Place ratings in ratings area */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Align items to the right */
+        margin-right: 10rem;
+        margin-top: 2rem;
+    }
+    .rating--one{
+        margin-right: 20rem;
+    }
+
+    .rating--two{
+        margin-right: 15rem;
+    }
+
+    .rating--three{
+        margin-right: 12rem;
+    }
+
+    .rating--one,
+    .rating--two,
+    .rating--three {
+        width: auto; /* Allow auto width */
+        max-width: 20rem; /* Adjust max-width */
+    }
+
+    .reviews {
+        grid-area: reviews; /* Place reviews in reviews area */
+        margin-top: 2rem; /* Adjust margin */
+        display: flex;
+        align-items: center; /* Center align items */
+        gap: 3rem;
+       margin-left: 17rem;
+    }
+
+    .review__user {
+        max-width: 40rem;
+    }
+
+    .review__user--two {
+        margin-top: 4rem;
+    }
+
+    .review__user--three {
+        margin-top: 7rem;
+    }
+}
